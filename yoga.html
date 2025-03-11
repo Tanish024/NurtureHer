@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NurtureHer - Prenatal Wellness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+            line-height: 1.8;
+            background: #faf3f0;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: linear-gradient(135deg, #9a7baf 0%, #f5a3c8 100%);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffebf0;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 40px;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 0;
+            background: linear-gradient(45deg, #f5a3c8, #b28fce);
+            border-radius: 20px;
+            margin-bottom: 4rem;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Yoga Pose Section */
+        .pose-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .pose-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #7a5c8d;
+        }
+
+        .pose-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .pose-video {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .pose-details {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .benefits-list li {
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: #fff5f7;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .benefits-list i {
+            color: #e91e63;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #7a5c8d;
+            color: white;
+            margin-top: 4rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #e91e63;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .pose-content {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="#" class="logo">NurtureHer</a>
+            <div class="nav-links">
+                <a href="#cat-cow">Cat-Cow</a>
+                <a href="#pelvic-tilt">Pelvic Tilt</a>
+                <a href="#squat">Squat</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Embrace Your Journey</h1>
+            <p>Safe Prenatal Yoga for Mother & Baby</p>
+        </section>
+
+        <!-- Cat-Cow Section -->
+        <section id="cat-cow" class="pose-section">
+            <div class="pose-header">
+                <h2>Cat-Cow Flow</h2>
+                <p>Gentle Spinal Warm-up</p>
+            </div>
+            <div class="pose-content">
+                <div class="pose-video">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="pose-details">
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-heartbeat"></i>Improves spinal flexibility</li>
+                        <li><i class="fas fa-baby"></i>Relieves lower back tension</li>
+                        <li><i class="fas fa-lungs"></i>Enhances breathing awareness</li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <p>Start on hands and knees. Inhale arch back (cow), exhale round spine (cat). Repeat 8-10 times.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pelvic Tilt Section -->
+        <section id="pelvic-tilt" class="pose-section">
+            <div class="pose-header">
+                <h2>Pelvic Tilts</h2>
+                <p>Core Strengthening</p>
+            </div>
+            <div class="pose-content">
+                <div class="pose-details">
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-spa"></i>Strengthens abdominal muscles</li>
+                        <li><i class="fas fa-balance-scale"></i>Improves posture alignment</li>
+                        <li><i class="fas fa-child"></i>Prepares for labor positions</li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <p>Lie on back with knees bent. Gently tilt pelvis upward, hold for 3 breaths. Repeat 10 times.</p>
+                </div>
+                <div class="pose-video">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supported Squat Section -->
+        <section id="squat" class="pose-section">
+            <div class="pose-header">
+                <h2>Supported Squat</h2>
+                <p>Hip Opening Pose</p>
+            </div>
+            <div class="pose-content">
+                <div class="pose-video">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="pose-details">
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-dumbbell"></i>Strengthens leg muscles</li>
+                        <li><i class="fas fa-arrows-alt-h"></i>Increases hip flexibility</li>
+                        <li><i class="fas fa-hands-helping"></i>Improves birth positioning</li>
+                    </ul>
+                    <h3>Instructions:</h3>
+                    <p>Use yoga blocks for support. Hold squat position for 30 seconds, repeat 3 times.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2023 NurtureHer | Designed with ❤️ for Expecting Mothers</p>
+    </footer>
+
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+</body>
+</html>
