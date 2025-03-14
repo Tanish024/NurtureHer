@@ -1,291 +1,685 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NurtureHer - Prenatal Wellness</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NurtureHer - Prenatal Wellness & Contact</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+      line-height: 1.8;
+      background: #faf3f0;
+    }
 
-        body {
-            font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
-            line-height: 1.8;
-            background: #faf3f0;
-        }
+    /* Navigation Bar */
+    .navbar {
+      background: linear-gradient(135deg, #9a7baf 0%, #f5a3c8 100%);
+      padding: 1rem 5%;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      color: white;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-decoration: none;
+      font-family: 'Pacifico', cursive;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #ffebf0;
+    }
 
-        /* Navigation Bar */
-        .navbar {
-            background: linear-gradient(135deg, #9a7baf 0%, #f5a3c8 100%);
-            padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        }
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 80px auto 40px;
+      padding: 0 20px;
+    }
 
-        .navbar-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 5rem 0;
+      background: linear-gradient(45deg, #f5a3c8, #b28fce);
+      border-radius: 20px;
+      margin-bottom: 4rem;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        .logo {
-            color: white;
-            font-size: 1.8rem;
-            font-weight: bold;
-            text-decoration: none;
-            font-family: 'Pacifico', cursive;
-        }
+    /* Common Section Styles */
+    .pose-section,
+    .contact-section,
+    .map-section,
+    .faq-section {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      margin: 3rem 0;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
+    /* Pose Section Specific Styles */
+    .pose-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #7a5c8d;
+    }
+    .pose-content {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .pose-video,
+    .pose-details {
+      flex: 1;
+      min-width: 300px;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .benefits-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+    .benefits-list li {
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      background: #fff5f7;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .benefits-list i {
+      color: #e91e63;
+    }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    /* Contact Section Specific Styles */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .contact-info h2,
+    .contact-form h2,
+    .map-section h2,
+    .faq-section h2 {
+      font-size: 2rem;
+      color: #7a5c8d;
+      margin-bottom: 1.5rem;
+    }
+    .info-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .info-icon {
+      background: #fff5f7;
+      padding: 1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .info-icon i {
+      color: #e91e63;
+      font-size: 1.2rem;
+    }
+    .info-content h3 {
+      font-weight: 600;
+      color: #7a5c8d;
+    }
+    .info-content p {
+      color: #666;
+    }
+    .social-media {
+      margin-top: 2.5rem;
+    }
+    .social-media h3 {
+      font-size: 1.2rem;
+      color: #7a5c8d;
+      margin-bottom: 1rem;
+    }
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+    .social-icon {
+      background: #fff5f7;
+      color: #e91e63;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .social-icon:hover {
+      background: #e91e63;
+      color: white;
+    }
 
-        .nav-links a:hover {
-            color: #ffebf0;
-        }
+    /* Form Styles */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      color: #7a5c8d;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #f5a3c8;
+      box-shadow: 0 0 0 3px rgba(245, 163, 200, 0.2);
+    }
+    .submit-btn {
+      background: linear-gradient(to right, #9a7baf, #f5a3c8);
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .submit-btn:hover {
+      opacity: 0.9;
+    }
 
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 80px auto 40px;
-            padding: 0 20px;
-        }
+    /* Success Message */
+    .success-message {
+      background: #fff5f7;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .success-message i {
+      font-size: 4rem;
+      color: #e91e63;
+      margin-bottom: 1rem;
+    }
+    .success-message h3 {
+      font-size: 1.5rem;
+      color: #7a5c8d;
+      margin-bottom: 0.5rem;
+    }
+    .success-message p {
+      color: #666;
+    }
+    .hidden {
+      display: none;
+    }
 
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 5rem 0;
-            background: linear-gradient(45deg, #f5a3c8, #b28fce);
-            border-radius: 20px;
-            margin-bottom: 4rem;
-            color: white;
-        }
+    /* Map Section Specific Styles */
+    .map-container {
+      height: 400px;
+      background: #f5f5f5;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .map-placeholder {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    .map-placeholder i {
+      font-size: 4rem;
+      color: #e91e63;
+      margin-bottom: 1rem;
+    }
+    .map-placeholder p {
+      color: #666;
+    }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
+    /* FAQ Section Specific Styles */
+    .faq-items {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .faq-item {
+      background: #fff5f7;
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
+    .faq-item h3 {
+      font-size: 1.2rem;
+      color: #7a5c8d;
+      margin-bottom: 0.5rem;
+    }
+    .faq-item p {
+      color: #666;
+    }
 
-        /* Yoga Pose Section */
-        .pose-section {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 3rem 0;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-        }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #7a5c8d;
+      color: white;
+      margin-top: 4rem;
+    }
 
-        .pose-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #7a5c8d;
-        }
+    /* Back-to-top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #e91e63;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+    .back-to-top:hover {
+      transform: translateY(-5px);
+    }
 
-        .pose-content {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .pose-video {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .pose-details {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .benefits-list {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .benefits-list li {
-            padding: 0.8rem;
-            margin: 0.5rem 0;
-            background: #fff5f7;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .benefits-list i {
-            color: #e91e63;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #7a5c8d;
-            color: white;
-            margin-top: 4rem;
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #e91e63;
-            color: white;
-            padding: 1rem;
-            border-radius: 50%;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        @media (max-width: 768px) {
-            .pose-content {
-                flex-direction: column;
-            }
-            
-            .nav-links {
-                gap: 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .pose-content,
+      .contact-section,
+      .map-section,
+      .faq-section,
+      .pose-section {
+        padding: 1.5rem;
+      }
+      .pose-content {
+        flex-direction: column;
+      }
+    }
+    @media (max-width: 576px) {
+      .navbar-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="navbar-content">
-            <a href="#" class="logo">NurtureHer</a>
-            <div class="nav-links">
-                <a href="#cat-cow">Cat-Cow</a>
-                <a href="#pelvic-tilt">Pelvic Tilt</a>
-                <a href="#squat">Squat</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>Embrace Your Journey</h1>
-            <p>Safe Prenatal Yoga for Mother & Baby</p>
-        </section>
-
-        <!-- Cat-Cow Section -->
-        <section id="cat-cow" class="pose-section">
-            <div class="pose-header">
-                <h2>Cat-Cow Flow</h2>
-                <p>Gentle Spinal Warm-up</p>
-            </div>
-            <div class="pose-content">
-                <div class="pose-video">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="pose-details">
-                    <ul class="benefits-list">
-                        <li><i class="fas fa-heartbeat"></i>Improves spinal flexibility</li>
-                        <li><i class="fas fa-baby"></i>Relieves lower back tension</li>
-                        <li><i class="fas fa-lungs"></i>Enhances breathing awareness</li>
-                    </ul>
-                    <h3>Instructions:</h3>
-                    <p>Start on hands and knees. Inhale arch back (cow), exhale round spine (cat). Repeat 8-10 times.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pelvic Tilt Section -->
-        <section id="pelvic-tilt" class="pose-section">
-            <div class="pose-header">
-                <h2>Pelvic Tilts</h2>
-                <p>Core Strengthening</p>
-            </div>
-            <div class="pose-content">
-                <div class="pose-details">
-                    <ul class="benefits-list">
-                        <li><i class="fas fa-spa"></i>Strengthens abdominal muscles</li>
-                        <li><i class="fas fa-balance-scale"></i>Improves posture alignment</li>
-                        <li><i class="fas fa-child"></i>Prepares for labor positions</li>
-                    </ul>
-                    <h3>Instructions:</h3>
-                    <p>Lie on back with knees bent. Gently tilt pelvis upward, hold for 3 breaths. Repeat 10 times.</p>
-                </div>
-                <div class="pose-video">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Supported Squat Section -->
-        <section id="squat" class="pose-section">
-            <div class="pose-header">
-                <h2>Supported Squat</h2>
-                <p>Hip Opening Pose</p>
-            </div>
-            <div class="pose-content">
-                <div class="pose-video">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="pose-details">
-                    <ul class="benefits-list">
-                        <li><i class="fas fa-dumbbell"></i>Strengthens leg muscles</li>
-                        <li><i class="fas fa-arrows-alt-h"></i>Increases hip flexibility</li>
-                        <li><i class="fas fa-hands-helping"></i>Improves birth positioning</li>
-                    </ul>
-                    <h3>Instructions:</h3>
-                    <p>Use yoga blocks for support. Hold squat position for 30 seconds, repeat 3 times.</p>
-                </div>
-            </div>
-        </section>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="#" class="logo">NurtureHer</a>
+      <div class="nav-links">
+        <a href="#cat-cow">Cat-Cow</a>
+        <a href="#pelvic-tilt">Pelvic Tilt</a>
+        <a href="#squat">Squat</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
+  </nav>
 
-    <footer>
-        <p>© 2023 NurtureHer | Designed with ❤️ for Expecting Mothers</p>
-    </footer>
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Embrace Your Journey</h1>
+      <p>Safe Prenatal Yoga for Mother &amp; Baby</p>
+    </section>
 
-    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    <!-- Yoga Pose Sections -->
+    <section id="cat-cow" class="pose-section">
+      <div class="pose-header">
+        <h2>Cat-Cow Flow</h2>
+        <p>Gentle Spinal Warm-up</p>
+      </div>
+      <div class="pose-content">
+        <div class="pose-video">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="pose-details">
+          <ul class="benefits-list">
+            <li><i class="fas fa-heartbeat"></i>Improves spinal flexibility</li>
+            <li><i class="fas fa-baby"></i>Relieves lower back tension</li>
+            <li><i class="fas fa-lungs"></i>Enhances breathing awareness</li>
+          </ul>
+          <h3>Instructions:</h3>
+          <p>Start on hands and knees. Inhale arch back (cow), exhale round spine (cat). Repeat 8-10 times.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pelvic-tilt" class="pose-section">
+      <div class="pose-header">
+        <h2>Pelvic Tilts</h2>
+        <p>Core Strengthening</p>
+      </div>
+      <div class="pose-content">
+        <div class="pose-details">
+          <ul class="benefits-list">
+            <li><i class="fas fa-spa"></i>Strengthens abdominal muscles</li>
+            <li><i class="fas fa-balance-scale"></i>Improves posture alignment</li>
+            <li><i class="fas fa-child"></i>Prepares for labor positions</li>
+          </ul>
+          <h3>Instructions:</h3>
+          <p>Lie on your back with knees bent. Gently tilt your pelvis upward, hold for 3 breaths. Repeat 10 times.</p>
+        </div>
+        <div class="pose-video">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="squat" class="pose-section">
+      <div class="pose-header">
+        <h2>Supported Squat</h2>
+        <p>Hip Opening Pose</p>
+      </div>
+      <div class="pose-content">
+        <div class="pose-video">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="pose-details">
+          <ul class="benefits-list">
+            <li><i class="fas fa-dumbbell"></i>Strengthens leg muscles</li>
+            <li><i class="fas fa-arrows-alt-h"></i>Increases hip flexibility</li>
+            <li><i class="fas fa-hands-helping"></i>Improves birth positioning</li>
+          </ul>
+          <h3>Instructions:</h3>
+          <p>Use yoga blocks for support. Hold the squat position for 30 seconds, repeat 3 times.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Contact Information</h2>
+          <div class="info-items">
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="info-content">
+                <h3>Our Location</h3>
+                <p>123 Wellness Street, Harmony City</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-content">
+                <h3>Email Us</h3>
+                <p>info@nurtureher.com</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="info-content">
+                <h3>Call Us</h3>
+                <p>(555) 123-4567</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="info-content">
+                <h3>Working Hours</h3>
+                <p>Monday - Friday: 9AM - 6PM</p>
+              </div>
+            </div>
+          </div>
+          <div class="social-media">
+            <h3>Connect With Us</h3>
+            <div class="social-icons">
+              <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h2>Send Us a Message</h2>
+          <div id="success-message" class="success-message hidden">
+            <i class="fas fa-check-circle"></i>
+            <h3>Thank You!</h3>
+            <p>Your message has been sent successfully. We'll get back to you soon!</p>
+          </div>
+          <form id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name" />
+              </div>
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Prenatal Classes">Prenatal Classes</option>
+                <option value="Private Sessions">Private Sessions</option>
+                <option value="Partnerships">Partnerships</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="6" required placeholder="Type your message here..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <h2>Find Us</h2>
+      <div class="map-container">
+        <div class="map-placeholder">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Map placeholder - integrate with Google Maps or your preferred map service</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-items">
+        <div class="faq-item">
+          <h3>Is prenatal yoga safe during all trimesters?</h3>
+          <p>Yes, our classes are designed to be safe for all trimesters. However, we recommend consulting with your healthcare provider before starting any new exercise program during pregnancy.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do I need prior yoga experience?</h3>
+          <p>No prior experience is necessary. Our classes are suitable for beginners and experienced practitioners alike.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What should I bring to class?</h3>
+          <p>Please bring a yoga mat, comfortable clothing, water, and any props you might need for comfort (though we provide basic props).</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you offer virtual classes?</h3>
+          <p>Yes, we offer both in-person and virtual classes to accommodate all mothers-to-be. Contact us for more information about our virtual options.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2023 NurtureHer | Designed with ❤️ for Expecting Mothers</p>
+  </footer>
+
+  <!-- Back-to-top Button -->
+  <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Form submission handling
+      const contactForm = document.getElementById('contact-form');
+      const successMessage = document.getElementById('success-message');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+          };
+
+          // Here you would typically send the data to your server
+          console.log('Form submitted:', formData);
+
+          // Show success message
+          contactForm.style.display = 'none';
+          successMessage.classList.remove('hidden');
+
+          // Reset form after a delay
+          setTimeout(() => {
+            contactForm.reset();
+            successMessage.classList.add('hidden');
+            contactForm.style.display = 'block';
+          }, 3000);
+        });
+      }
+
+      // Back-to-top button functionality
+      const backToTopButton = document.querySelector('.back-to-top');
+
+      if (backToTopButton) {
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function () {
+          backToTopButton.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+        });
+
+        // Scroll to top on click
+        backToTopButton.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // Initially hide the back-to-top button
+      if (backToTopButton) {
+        backToTopButton.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>

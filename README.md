@@ -21,7 +21,9 @@ Blood Donation Support: Integrated blood donation site for emergency needs.
 <h2>Frontend:</h2>HTML, CSS, JavaScript
 <br>
 <h2>Backend:</h2> [Your choice of backend technology, e.g., Node.js, Python, PHP]
+<br>
 
-Database: [Your choice of database, e.g., MySQL, MongoDB]
+<h2>Database:</h2> [Your choice of database, e.g., MySQL, MongoDB]
+<br>
 
-APIs:Google Maps API (for hospital location services)
+<h2>APIs:</h2>Google Maps API (for hospital location services)
