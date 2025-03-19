@@ -154,31 +154,26 @@
         .thought:nth-child(3) { animation-delay: 8s; }
 
         .hero-image {
-            width: 100%;
-            height: 500px;
-            border-radius: 20px;
-            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
-            box-shadow: 0 10px 30px rgba(255, 116, 140, 0.3);
-            animation: float 4s ease-in-out infinite;
-            position: relative;
-            overflow: hidden;
-        }
+    width: 100%;
+    height: 500px;
+    border-radius: 20px;
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    box-shadow: 0 10px 30px rgba(255, 116, 140, 0.3);
+    animation: float 4s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, 
-                transparent 20%, 
-                rgba(255,255,255,0.1) 40%,
-                rgba(255,255,255,0.05) 60%,
-                transparent 80%);
-            transform: rotate(45deg);
-            animation: shine 4s infinite;
-        }
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* or use contain if you want full visibility without cropping */
+    border-radius: 20px;
+}
+
 
         /* Hospital Columns Section */
         .hospitals-section {
@@ -341,7 +336,7 @@
                 <i class="fas fa-moon"></i>
             </button>
             <a href="signup.html">Sign Up</a>
-            <a href="#">Login</a>
+            <a href="login.html">Login</a>
             <a href="yoga.html">Yoga <i class="fas fa-spa"></i></a>
         </div>
     </nav>
@@ -353,7 +348,9 @@
             <div class="thought">"Every kick is a love note from your little one."</div>
             <div class="thought">"You're growing life - there's nothing more powerful."</div>
         </div>
-        <div class="hero-image"></div>
+        <div class="hero-image">
+            <img src ="pregnant women.jpg">
+        </div>
     </section>
 
     <!-- Partner Hospitals -->
@@ -383,16 +380,16 @@
         <h2>Pregnancy Guidance</h2>
         <div class="video-grid">
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/9Auq9mYxFEE" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ettvIlbbBWI?si=Xkt6VHYDl7eqYaW7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/9T6A5xKQTRg" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/_dVuHFdUN0c?si=cOvlEThehAqisZeY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/9Auq9mYxFEE" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/hnFpam2u5Xc?si=idWKIo2RBKEh32bg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/9T6A5xKQTRg" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/BxHk447kbL4?si=ELVaKaDt_qbDo5KI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     </section>
