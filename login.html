@@ -1,3 +1,4 @@
+<!-- index.html (Login Page) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,7 +130,7 @@
     <button class="back-btn" id="backBtn">Back</button>
     <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
     <div class="login-container">
-        <form class="login-form">
+        <form class="login-form" id="loginForm">
             <h2 class="form-title">Login</h2>
             <div class="input-group">
                 <input type="email" id="email" placeholder="Email Address" required>
@@ -147,14 +148,16 @@
     <script>
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
+        const loginForm = document.getElementById('loginForm');
+        const backBtn = document.getElementById('backBtn');
 
+        // Theme handling
         themeToggle.addEventListener('click', () => {
             const isDark = body.getAttribute('data-theme') === 'dark';
             body.setAttribute('data-theme', isDark ? 'light' : 'dark');
             themeToggle.innerHTML = isDark 
                 ? '<i class="fas fa-moon"></i>' 
                 : '<i class="fas fa-sun"></i>';
-            
             localStorage.setItem('theme', isDark ? 'light' : 'dark');
         });
 
@@ -165,10 +168,25 @@
             ? '<i class="fas fa-sun"></i>' 
             : '<i class="fas fa-moon"></i>';
 
-        // Back button functionality
-        const backBtn = document.getElementById('backBtn');
+        // Back button
         backBtn.addEventListener('click', () => {
             window.history.back();
+        });
+
+        // Login handling
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if(email && password) {
+                // Simulate successful login
+                localStorage.setItem('isLoggedIn', 'true');
+                window.location.href = 'dash.html';
+            } else {
+                alert('Please fill in all fields');
+            }
         });
     </script>
 </body>
