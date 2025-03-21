@@ -616,6 +616,9 @@
       </div>
     </section>
   </div>
+  <div style="padding: 20px;">
+    <button onclick="goBack()" style="padding: 10px 20px; font-size: 16px; background-color: #e91e63; color: white; border: none; border-radius: 5px; cursor: pointer;">Back</button>
+  </div>
 
   <!-- Footer -->
   <footer>
@@ -680,6 +683,9 @@
         backToTopButton.style.display = 'none';
       }
     });
+    function goBack() {
+    window.history.back();
+  }
   </script>
 </body>
 </html>
