@@ -77,6 +77,14 @@
             font-weight: 600;
         }
 
+        /* Make the NurtureHer title clickable */
+        .sidebar-header a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+        }
+
         .sidebar ul {
             list-style: none;
         }
@@ -1007,14 +1015,15 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-header">
-            <i class="fas fa-heart"></i>
-            <h2>NurtureHer</h2>
+            <a href="index.html">
+                <i class="fas fa-heart"></i>
+                <h2>NurtureHer</h2>
+            </a>
         </div>
         <nav>
             <ul>
-                <li><a href="#" class="active" id="dashboardLink"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="index.html" class="active" id="dashboardLink"><i class="fas fa-home"></i> NurtureHer</a></li>
                 <li><a href="#appointments" id="appointmentsLink"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
-                <!-- <li  id="appointmentsLink"><i class="fas fa-calendar-alt"></i> Appointments</a></li> -->
                 <li><a href="#medicalRecords" id="medicalRecordsLink"><i class="fas fa-file-medical"></i> Medical Records</a></li>
                 <li><a href="#pregnancyTracker" id="pregnancyTrackerLink"><i class="fas fa-baby"></i> Pregnancy Tracker</a></li>
                 <li><a href="#nutritionPlans" id="nutritionPlansLink"><i class="fas fa-apple-alt"></i> Nutrition Plans</a></li>
@@ -1482,7 +1491,7 @@
                     const href = this.getAttribute('href');
                     
                     // If it's a hash link (not just "#")
-                    if (href && href !== '#') {
+                    if (href && href !== '#' && href.startsWith('#')) {
                         e.preventDefault();
                         
                         // Get the target section
