@@ -665,6 +665,31 @@
             .nav-links {
                 width: 100%;
                 justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .container {
+                margin-top: 140px;
+            }
+
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .search-container input {
+                min-width: 0;
+                flex: 1;
+            }
+
+            .search-container button {
+                width: auto;
+            }
+
+            .blood-types, .process-steps, .benefits, .locations, .footer-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>

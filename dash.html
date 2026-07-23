@@ -139,6 +139,8 @@
             border-radius: 15px;
             box-shadow: var(--shadow);
             margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .profile {
@@ -849,7 +851,9 @@
         }
 
         #chatMessages {
-            height: 300px;
+            max-height: 300px;
+            height: auto;
+            min-height: 150px;
             overflow-y: auto;
             padding: 1rem;
             border-radius: 10px;
@@ -938,6 +942,12 @@
                 --sidebar-width: 0px;
             }
 
+            .dashboard-grid,
+            .emergency-contacts,
+            .exercises-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .sidebar {
                 transform: translateX(-100%);
                 z-index: 1000;
@@ -971,6 +981,14 @@
                 z-index: 999;
                 border: none;
                 cursor: pointer;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dashboard-grid,
+            .emergency-contacts,
+            .exercises-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1469,15 +1487,24 @@
             : '<i class="fas fa-moon"></i>';
 
         // Mobile Sidebar Toggle
-        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileToggle = document.querySelector('.mobile-toggle');
         const sidebar = document.querySelector('.sidebar');
 
-        mobileToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-            mobileToggle.innerHTML = sidebar.classList.contains('active')
-                ? '<i class="fas fa-times"></i>'
-                : '<i class="fas fa-bars"></i>';
-        });
+        if (mobileToggle && sidebar) {
+            mobileToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+                mobileToggle.innerHTML = sidebar.classList.contains('active')
+                    ? '<i class="fas fa-times"></i>'
+                    : '<i class="fas fa-bars"></i>';
+            });
+            // Close sidebar when clicking outside
+            document.querySelector('.main-content').addEventListener('click', () => {
+                if (sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                    mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        }
 
         // Function to handle smooth scrolling for all navigation links
         function setupSmoothScrolling() {
